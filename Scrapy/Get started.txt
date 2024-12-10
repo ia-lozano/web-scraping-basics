@@ -1,0 +1,46 @@
+For Anaconda:
+1. Download Anaconda
+2. Create a new environment within conda, you can name it myScrapyEnv
+    2.1 Open Anaconda navigator > Environments > create.
+
+For Pycharm (SO: Windows 10):
+1. Go to C:/users/'username'/AppData/Local/anaconda3/envs AND open folder with Pycharm (for some reason...)
+2. Configure Pycharm:
+    2.1 Create new project > Custom environment > Select Existing > Type: Python > Pyton Path: Your Scrapy Env
+
+Necessary libraries:
+1. Install Scrapy
+    1.1 Open Anaconda Prompt and:
+    1.1 Activate your Scrapy Env: conda activate 'my scrapy env name'
+    1.2 Install Scrapy: conda install -c conda-forge scrapy
+2. Install Protego:
+    2.1 From Anaconda Prompt: conda install -c conda-forge protego
+3. Install Other libraries into your Scrapy Env
+    3.1 pip install dnspython
+    3.2 pip install pymongo
+
+Once in pycharm:
+1. Start a new project, select your Scrapy Env.
+2. Activate your Scrapy Env: conda activate 'your scrapy env name'
+3. Start a new project: scrapy startproject 'project name'
+4. cd into the project folder
+5. Generate a spider: scrapy genspider 'spider name' 'website url (do not write the https//: part, start from www. and do not write the final slash)'
+    For example:
+        Write: www.worldometers.info/world-population
+        Instead of: https://www.worldometer.info/world-population/
+
+Aditional notes:
+You can use the command: scrapy shell to open the Scrapy terminal and then create a new variable named 'r' for instance
+then initialize it as r = scrapy.Request(url='complete url with https//: part and the last slash'), then fetch(r)
+To see the full website html code run: response.body
+Use quit() to exit from the terminal
+
+Once you configured your parse() function and the yield dictionary (see documentation for more info) 
+run: scrapy crawl 'spider name'
+
+# To know how to dump data into a databse see crawlers_tutorial spiders.
+
+
+
+
+
